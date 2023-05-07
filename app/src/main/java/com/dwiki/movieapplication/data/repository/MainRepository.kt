@@ -43,10 +43,14 @@ class MainRepository @Inject constructor(
             } else {
                 emit(Resources.error(response.errorBody()?.string(),null))
                 Log.e(TAG,"error upcoming movie week : ${response.errorBody()?.string()}")
+                throw RuntimeException("error connect api  : ${response.errorBody()?.string()}")
             }
         } catch (e:Exception){
             emit(Resources.error(e.message.toString(),null))
             Log.e(TAG,"error connect api : ${e.cause.toString()}")
+            //crashlyics
+            throw RuntimeException("error connect api")
+
         }
     }
 

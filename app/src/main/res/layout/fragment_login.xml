@@ -11,12 +11,25 @@
     tools:context=".ui.LoginFragment">
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="MovieFlix"
+        android:layout_marginTop="28dp"
+        android:textColor="@color/neon_green"
+        android:textSize="30sp"
+        android:fontFamily="@font/poppins_bold"
+        android:layout_marginBottom="6dp"
+        />
+
+    <TextView
         android:id="@+id/tv_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Email"
         android:textColor="@color/neon_green"
         android:textSize="16sp"
+        android:layout_marginTop="28dp"
         android:layout_marginBottom="6dp"
         />
 
@@ -86,7 +99,7 @@
         android:layout_marginTop="32dp"
         android:backgroundTint="@color/neon_green"
         app:layout_constraintTop_toBottomOf="@+id/ti_password"
-        android:text="Login"
+        android:text="@string/login"
         android:textSize="19sp"
         android:textColor="@color/white"
         android:textAllCaps="false"/>
@@ -95,7 +108,7 @@
         android:id="@+id/tv_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Belum Punya Akun?"
+        android:text="@string/dont_have_account"
         android:layout_gravity="center"
         android:layout_marginTop="28dp"
         android:textSize="16sp"

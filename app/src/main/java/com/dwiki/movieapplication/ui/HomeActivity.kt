@@ -1,5 +1,6 @@
 package com.dwiki.movieapplication.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -17,6 +18,7 @@ import com.dwiki.movieapplication.data.responsemodel.ResultsItem
 import com.dwiki.movieapplication.data.responsemodel.UpcomingResultsItem
 import com.dwiki.movieapplication.databinding.ActivityHomeBinding
 import com.dwiki.movieapplication.util.Status
+import com.dwiki.movieapplication.viewmodel.LoginViewModel
 import com.dwiki.movieapplication.viewmodel.TrendingMovieViewModel
 import com.dwiki.movieapplication.viewmodel.UpcomingViewModel
 import com.google.firebase.auth.ktx.auth
@@ -29,6 +31,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     private val trendingViewModel:TrendingMovieViewModel by viewModels()
     private val upcomingViewModel:UpcomingViewModel by viewModels()
+    private val loginViewModel:LoginViewModel by viewModels()
     private lateinit var trendingMovieAdapter: TrendingMovieAdapter
     private lateinit var upcomingMovieAdapter:UpcomingMovieAdapter
 
@@ -42,10 +45,9 @@ class HomeActivity : AppCompatActivity() {
         setupTrendingMovie()
         setupUpcomingMovie()
 
-        val user = Firebase.auth.currentUser
-        val email = user?.email
 
-        binding.tvWelcome.text = "Welcome, $email"
+        val username = loginViewModel.getUsernamePreferences("key_username")
+        binding.tvWelcome.text = getString(R.string.welcome,username)
     }
 
     private fun setupUpcomingMovie() {
@@ -84,6 +86,7 @@ class HomeActivity : AppCompatActivity() {
                     binding.rvUpcomingMovie.visibility = View.VISIBLE
                     binding.shimmerFrameLayoutUpcoming.stopShimmer()
                     Log.d("HomeActivity Upcoming", "Error : ${upcomingMovie.message}")
+
                 }
 
             }
@@ -141,7 +144,8 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.profile){
-            Toast.makeText(this, "Profile User", Toast.LENGTH_SHORT).show();
+            val intent = Intent(this,ProfileActivity::class.java)
+            startActivity(intent)
         } else {
             Toast.makeText(this, "No Profile Icon", Toast.LENGTH_SHORT).show();
         }

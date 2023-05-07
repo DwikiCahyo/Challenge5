@@ -132,7 +132,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_regular"
-        android:text="Confirm Password"
+        android:text="@string/confirm_password"
         android:layout_marginTop="28dp"
         android:textSize="16sp"
         android:textColor="@color/neon_green" />
@@ -170,7 +170,7 @@
         android:layout_marginTop="32dp"
         android:backgroundTint="@color/neon_green"
         app:layout_constraintTop_toBottomOf="@+id/ti_password"
-        android:text="Register"
+        android:text="@string/register"
         android:textSize="19sp"
         android:textColor="@color/white"
         android:textAllCaps="false"/>
