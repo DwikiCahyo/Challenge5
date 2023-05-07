@@ -2,4 +2,6 @@
     <string name="app_name">Movie Application</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="trending_movie">Trending Movie</string>
+    <string name="movieflix">MovieFlix</string>
 </resources>
