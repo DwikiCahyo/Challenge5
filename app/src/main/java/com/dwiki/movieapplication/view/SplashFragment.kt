@@ -1,16 +1,15 @@
-package com.dwiki.movieapplication.ui
+package com.dwiki.movieapplication.view
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.dwiki.movieapplication.R
-import com.dwiki.movieapplication.databinding.FragmentLoginBinding
 import com.dwiki.movieapplication.databinding.FragmentSplashBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -22,8 +21,6 @@ class SplashFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
     }
 
     override fun onCreateView(
@@ -36,7 +33,7 @@ class SplashFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        auth = FirebaseAuth.getInstance();
+        auth = FirebaseAuth.getInstance()
 
         setAction(view)
     }
@@ -49,8 +46,7 @@ class SplashFragment : Fragment() {
                 startActivity(intent)
                 activity?.finish()
             } else {
-                Navigation.findNavController(view)
-                    .navigate(R.id.action_splashFragment_to_loginFragment)
+                Navigation.findNavController(view).navigate(R.id.action_splashFragment_to_loginFragment)
             }
         }, 2000)
     }

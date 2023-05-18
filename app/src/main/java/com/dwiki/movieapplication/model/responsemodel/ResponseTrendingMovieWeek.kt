@@ -1,11 +1,8 @@
-package com.dwiki.movieapplication.data.responsemodel
+package com.dwiki.movieapplication.model.responsemodel
 
 import com.google.gson.annotations.SerializedName
 
-data class ResponseUpcomingMovie(
-
-	@field:SerializedName("dates")
-	val dates: Dates,
+data class ResponseTrendingMovieWeek(
 
 	@field:SerializedName("page")
 	val page: Int,
@@ -14,13 +11,13 @@ data class ResponseUpcomingMovie(
 	val totalPages: Int,
 
 	@field:SerializedName("results")
-	val results: List<UpcomingResultsItem>,
+	val results: List<ResultsItem>,
 
 	@field:SerializedName("total_results")
 	val totalResults: Int
 )
 
-data class UpcomingResultsItem(
+data class ResultsItem(
 
 	@field:SerializedName("overview")
 	val overview: String,
@@ -46,6 +43,9 @@ data class UpcomingResultsItem(
 	@field:SerializedName("backdrop_path")
 	val backdropPath: String,
 
+	@field:SerializedName("media_type")
+	val mediaType: String,
+
 	@field:SerializedName("release_date")
 	val releaseDate: String,
 
@@ -63,13 +63,4 @@ data class UpcomingResultsItem(
 
 	@field:SerializedName("vote_count")
 	val voteCount: Int
-)
-
-data class Dates(
-
-	@field:SerializedName("maximum")
-	val maximum: String,
-
-	@field:SerializedName("minimum")
-	val minimum: String
 )

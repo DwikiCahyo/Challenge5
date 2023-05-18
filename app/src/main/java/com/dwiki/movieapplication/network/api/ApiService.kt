@@ -1,7 +1,7 @@
-package com.dwiki.movieapplication.data.api
+package com.dwiki.movieapplication.network.api
 
-import com.dwiki.movieapplication.data.responsemodel.ResponseTrendingMovieWeek
-import com.dwiki.movieapplication.data.responsemodel.ResponseUpcomingMovie
+import com.dwiki.movieapplication.model.responsemodel.ResponseTrendingMovieWeek
+import com.dwiki.movieapplication.model.responsemodel.ResponseUpcomingMovie
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

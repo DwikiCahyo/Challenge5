@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:name=".BaseApplication"
@@ -15,14 +16,16 @@
         android:theme="@style/Theme.MovieApplication"
         tools:targetApi="31">
         <activity
-            android:name=".ui.ProfileActivity"
-            android:exported="false"
-            android:theme="@style/Theme.MovieApplicationNoActionBar"
-            />
+            android:name=".view.FavoriteActivity"
+            android:exported="false" />
         <activity
-            android:name=".ui.HomeActivity"
+            android:name=".view.ProfileActivity"
             android:exported="false"
-            android:theme="@style/Theme.MovieApplicationNoActionBar"/>
+            android:theme="@style/Theme.MovieApplicationNoActionBar" />
+        <activity
+            android:name=".view.HomeActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MovieApplicationNoActionBar" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -1,11 +1,10 @@
-package com.dwiki.movieapplication.ui
+package com.dwiki.movieapplication.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.dwiki.movieapplication.MainActivity
-import com.dwiki.movieapplication.R
 import com.dwiki.movieapplication.databinding.ActivityProfileBinding
 import com.dwiki.movieapplication.viewmodel.LoginViewModel
 import com.google.firebase.auth.FirebaseAuth
@@ -41,6 +40,11 @@ class ProfileActivity : AppCompatActivity() {
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
             finish()
+        }
+
+        binding.btnFav.setOnClickListener {
+            val intent = Intent(this,FavoriteActivity::class.java)
+            startActivity(intent)
         }
 
     }

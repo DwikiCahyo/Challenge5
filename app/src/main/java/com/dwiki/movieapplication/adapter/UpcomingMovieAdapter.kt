@@ -4,9 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.dwiki.movieapplication.data.responsemodel.ResultsItem
-import com.dwiki.movieapplication.data.responsemodel.UpcomingResultsItem
-import com.dwiki.movieapplication.databinding.ItemPosterFilmBinding
+import com.dwiki.movieapplication.model.responsemodel.UpcomingResultsItem
 import com.dwiki.movieapplication.databinding.ItemUpcomingMovieBinding
 
 class UpcomingMovieAdapter(private val listUpcoming:List<UpcomingResultsItem>):RecyclerView.Adapter<UpcomingMovieAdapter.ViewHolder>() {

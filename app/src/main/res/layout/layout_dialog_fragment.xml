@@ -46,6 +46,51 @@
             tools:text="Release Date : 2023-05-03"
             />
 
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/layout_favorite"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tv_release_date"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:backgroundTint="@color/backgroud_color"
+            app:cardCornerRadius="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="5dp"
+                android:orientation="horizontal">
+
+                <ToggleButton
+                    android:id="@+id/btn_favorite"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/ic_favorite"
+                    android:focusable="false"
+                    android:layout_marginRight="8dp"
+                    android:focusableInTouchMode="false"
+                    android:textOff=""
+                    android:textOn=""
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="favorite"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textSize="16sp"
+                    />
+
+
+            </LinearLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
         <TextView
             android:id="@+id/tv_overview"
             android:layout_width="wrap_content"
@@ -59,7 +104,7 @@
             app:layout_constraintBottom_toBottomOf="parent "
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_release_date"
+            app:layout_constraintTop_toBottomOf="@+id/layout_favorite"
             tools:text="Peter Quill, still reeling from the loss of Gamora, must rally his team around him to defend the universe along with protecting one of their own. A mission that, if not completed successfully, could quite possibly lead to the end of the Guardians as we know them." />
 
 

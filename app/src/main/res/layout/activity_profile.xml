@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/backgroud_color"
-    tools:context=".ui.ProfileActivity">
+    tools:context=".view.ProfileActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         app:layout_constraintStart_toStartOf="parent"
@@ -47,6 +47,19 @@
 
 
     <TextView
+        android:id="@+id/btn_fav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:text="Favorite Movie >"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/neon_green"
+        android:textSize="16sp"
+        />
+
+
+    <TextView
         android:id="@+id/tv_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -54,7 +67,7 @@
         android:textColor="@color/neon_green"
         android:layout_marginHorizontal="16dp"
         android:textSize="16sp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="6dp"
         />
 

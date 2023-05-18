@@ -1,17 +1,20 @@
-package com.dwiki.movieapplication.data.repository
+package com.dwiki.movieapplication.model.repository
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
-import com.dwiki.movieapplication.data.api.ApiService
-import com.dwiki.movieapplication.data.responsemodel.ResponseTrendingMovieWeek
-import com.dwiki.movieapplication.data.responsemodel.ResponseUpcomingMovie
+import com.dwiki.movieapplication.model.db.Favorite
+import com.dwiki.movieapplication.model.db.FavoriteDAO
+import com.dwiki.movieapplication.network.api.ApiService
+import com.dwiki.movieapplication.model.responsemodel.ResponseTrendingMovieWeek
+import com.dwiki.movieapplication.model.responsemodel.ResponseUpcomingMovie
 import com.dwiki.movieapplication.util.Resources
 import kotlinx.coroutines.delay
 import javax.inject.Inject
 
 class MainRepository @Inject constructor(
-    private val apiService: ApiService
+    private val apiService: ApiService,
+    private val favoriteDAO: FavoriteDAO
 ) {
 
     fun trendingMovieWeek(token:String):LiveData<Resources<ResponseTrendingMovieWeek>> = liveData {
@@ -53,6 +56,19 @@ class MainRepository @Inject constructor(
 
         }
     }
+
+    //insert favorite movie
+    suspend fun insertFavoriteMovie( favorite: Favorite) = favoriteDAO.addFavorite(favorite)
+
+    //delete favorite movie
+    suspend fun deleteFavoriteMovie(idMovie:Int) = favoriteDAO.removeFavorite(idMovie)
+
+    //get all favorite movie
+    fun getAllFavoriteMovie() = favoriteDAO.getFavorite()
+
+    //check is movie favorite
+    suspend fun isFavoriteMovie(idMovie:Int):Int = favoriteDAO.checkFavorite(idMovie)
+
 
 
 

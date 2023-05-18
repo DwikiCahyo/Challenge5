@@ -1,7 +1,7 @@
 package com.dwiki.movieapplication.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.dwiki.movieapplication.data.repository.MainRepository
+import com.dwiki.movieapplication.model.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

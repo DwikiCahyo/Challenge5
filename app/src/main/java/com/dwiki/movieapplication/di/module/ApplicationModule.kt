@@ -1,9 +1,13 @@
 package com.dwiki.movieapplication.di.module
 
+import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
+import androidx.room.Room
 import com.dwiki.movieapplication.BuildConfig
-import com.dwiki.movieapplication.data.api.ApiService
+import com.dwiki.movieapplication.model.db.FavoriteDAO
+import com.dwiki.movieapplication.model.db.FavoriteDatabase
+import com.dwiki.movieapplication.network.api.ApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -49,6 +53,20 @@ class ApplicationModule {
     @Singleton
     fun provideSharedPreferences(@ApplicationContext context: Context): SharedPreferences {
         return context.getSharedPreferences("preferences", Context.MODE_PRIVATE)
+    }
+
+    @Singleton
+    @Provides
+    fun provideDatabase(app:Application):FavoriteDatabase {
+        return Room.databaseBuilder(app, FavoriteDatabase::class.java, "favorite_database")
+            .fallbackToDestructiveMigration()
+            .build()
+    }
+
+    @Singleton
+    @Provides
+    fun provideFavoriteDao(database:FavoriteDatabase):FavoriteDAO {
+        return database.getFavoriteDao()
     }
 
 

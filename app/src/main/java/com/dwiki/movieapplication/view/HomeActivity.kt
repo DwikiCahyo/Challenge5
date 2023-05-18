@@ -1,28 +1,25 @@
-package com.dwiki.movieapplication.ui
+package com.dwiki.movieapplication.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dwiki.movieapplication.R
 import com.dwiki.movieapplication.adapter.TrendingMovieAdapter
 import com.dwiki.movieapplication.adapter.UpcomingMovieAdapter
-import com.dwiki.movieapplication.data.responsemodel.ResultsItem
-import com.dwiki.movieapplication.data.responsemodel.UpcomingResultsItem
+import com.dwiki.movieapplication.model.responsemodel.ResultsItem
+import com.dwiki.movieapplication.model.responsemodel.UpcomingResultsItem
 import com.dwiki.movieapplication.databinding.ActivityHomeBinding
 import com.dwiki.movieapplication.util.Status
 import com.dwiki.movieapplication.viewmodel.LoginViewModel
 import com.dwiki.movieapplication.viewmodel.TrendingMovieViewModel
 import com.dwiki.movieapplication.viewmodel.UpcomingViewModel
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -47,7 +44,8 @@ class HomeActivity : AppCompatActivity() {
 
 
         val username = loginViewModel.getUsernamePreferences("key_username")
-        binding.tvWelcome.text = getString(R.string.welcome,username)
+//        binding.tvWelcome.text = getString(R.string.welcome,username)
+        binding.tvWelcome.text = "Welcome, $username"
     }
 
     private fun setupUpcomingMovie() {
@@ -77,7 +75,7 @@ class HomeActivity : AppCompatActivity() {
 
                         upcomingMovieAdapter.setOnItemClickCallback(object :UpcomingMovieAdapter.OnItemClickCallback{
                             override fun onItemClicked(listUpcoming: UpcomingResultsItem) {
-                                DetailDialogFragment(listUpcoming.originalTitle,listUpcoming.releaseDate,listUpcoming.overview,listUpcoming.posterPath).show(supportFragmentManager,"Detail Fragment")
+                                DetailDialogFragment(listUpcoming.originalTitle,listUpcoming.releaseDate,listUpcoming.overview,listUpcoming.posterPath,listUpcoming.id).show(supportFragmentManager,"Detail Fragment")
                             }
                         })
                     }
@@ -123,7 +121,7 @@ class HomeActivity : AppCompatActivity() {
                             trendingMovieAdapter.setOnItemClickCallback(object :
                                 TrendingMovieAdapter.OnItemClickCallback {
                                 override fun onItemClicked(listTrendingMovie: ResultsItem) {
-                                    DetailDialogFragment(listTrendingMovie.originalTitle,listTrendingMovie.releaseDate,listTrendingMovie.overview,listTrendingMovie.posterPath).show(supportFragmentManager,"Detail Fragment")
+                                    DetailDialogFragment(listTrendingMovie.originalTitle,listTrendingMovie.releaseDate,listTrendingMovie.overview,listTrendingMovie.posterPath,listTrendingMovie.id).show(supportFragmentManager,"Detail Fragment")
                                 }
                             })
                         }
@@ -147,7 +145,7 @@ class HomeActivity : AppCompatActivity() {
             val intent = Intent(this,ProfileActivity::class.java)
             startActivity(intent)
         } else {
-            Toast.makeText(this, "No Profile Icon", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "No Profile Icon", Toast.LENGTH_SHORT).show()
         }
         return super.onOptionsItemSelected(item)
     }

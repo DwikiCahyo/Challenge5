@@ -2,10 +2,9 @@ package com.dwiki.movieapplication.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.AdapterView.OnItemClickListener
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.dwiki.movieapplication.data.responsemodel.ResultsItem
+import com.dwiki.movieapplication.model.responsemodel.ResultsItem
 import com.dwiki.movieapplication.databinding.ItemPosterFilmBinding
 
 class TrendingMovieAdapter(private var listTrendingMovie:List<ResultsItem>):RecyclerView.Adapter<TrendingMovieAdapter.ViewHolder>() {

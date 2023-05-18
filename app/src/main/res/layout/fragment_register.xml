@@ -7,7 +7,7 @@
     android:background="@color/backgroud_color"
     android:paddingHorizontal="30dp"
     android:orientation="vertical"
-    tools:context=".ui.RegisterFragment">
+    tools:context=".view.RegisterFragment">
 
     <TextView
         android:layout_width="wrap_content"
